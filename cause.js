@@ -1,22 +1,22 @@
  // Reasons database
  const reasons = [
     { 
-        text: "You’re such a kind and wonderful person, and I feel lucky to share such a good bond with you. 💖", 
+        text: "Kamu orang yang baik dan bisa menghargai banget, aku merasa beruntung kita bisa punya hubungan sedekat dan senyaman ini. 💖", 
         emoji: "🌟",
         gif: "gif1.gif"
     },
     { 
-        text: "May your day be filled with love, laughter, and endless joy. 🌸 ", 
+        text: "Semoga harimu dipenuhi dengan cinta, tawa, dan kebahagiaan yang tak pernah usai.. 🌸 ", 
         emoji: "💗",
         gif: "gif2.gif"
     },
     { 
-        text: "Wishing you success, happiness, and everything your heart desires. ✨ ", 
+        text: "Semoga kesuksesan dan kebahagiaan selalu menyertaimu, dan semoga Allah mengabulkan segala apa yang paling diinginkan oleh hatimu. ✨ ", 
         emoji: "💕",
         gif: "gif1.gif"
     },
     { 
-        text: "Stay the amazing girl you are—always spreading positivity around. Have the happiest year ahead! 🥳 ", 
+        text: "Tetaplah menjadi gadis luar biasa seperti yang aku kenal yang selalu menebarkan energi positif di sekitarmu. Semoga tahun ini menjadi tahun yang paling membahagiakan untukmu! 🥳 ", 
         emoji: "🌟",
         gif: "gif2.gif"
     }
@@ -104,6 +104,7 @@ function displayNewReason() {
     }
 }
 
+
 // Initialize button click
 shuffleButton.addEventListener('click', () => {
     gsap.to(shuffleButton, {
@@ -116,33 +117,114 @@ shuffleButton.addEventListener('click', () => {
 });
 
 // Floating elements function (same as before)
+// function createFloatingElement() {
+//     const elements = ['🌸', '✨', '💖', '🦋', '⭐'];
+//     const element = document.createElement('div');
+//     element.className = 'floating';
+//     element.textContent = elements[Math.floor(Math.random() * elements.length)];
+//     element.style.left = Math.random() * window.innerWidth + 'px';
+//     element.style.top = Math.random() * window.innerHeight + 'px';
+//     element.style.fontSize = (Math.random() * 20 + 10) + 'px';
+//     document.body.appendChild(element);
+
+//     gsap.to(element, {
+//         y: -500,
+//         duration: Math.random() * 10 + 10,
+//         opacity: 0,
+//         onComplete: () => element.remove()
+//     });
+// }
+
+// Custom cursor (same as before)
+// const cursor = document.querySelector('.custom-cursor');
+// document.addEventListener('mousemove', (e) => {
+//     gsap.to(cursor, {
+//         x: e.clientX - 15,
+//         y: e.clientY - 15,
+//         duration: 0.2
+//     });
+// });
+
+// // Create initial floating elements
+// setInterval(createFloatingElement, 2000);
+
 function createFloatingElement() {
-    const elements = ['🌸', '✨', '💖', '🦋', '⭐'];
+    const elements = ['🌸', '✨', '💖', '🦋', '⭐', '🌷', '💘'];
     const element = document.createElement('div');
     element.className = 'floating';
     element.textContent = elements[Math.floor(Math.random() * elements.length)];
-    element.style.left = Math.random() * window.innerWidth + 'px';
-    element.style.top = Math.random() * window.innerHeight + 'px';
-    element.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    
+    // Posisi awal di bawah layar agar muncul dari bawah
+    const startX = Math.random() * window.innerWidth;
+    element.style.left = startX + 'px';
+    element.style.top = (window.innerHeight + 50) + 'px'; // Mulai dari luar layar bawah
+    element.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    element.style.position = 'fixed';
+    element.style.pointerEvents = 'none'; // Biar tidak menghalangi klik
+    element.style.zIndex = '999';
+    
     document.body.appendChild(element);
 
+    // Animasi GSAP yang lebih kompleks
     gsap.to(element, {
-        y: -500,
-        duration: Math.random() * 10 + 10,
+        y: -(window.innerHeight + 200), // Naik sampai melewati atas layar
+        x: startX + (Math.random() * 200 - 100), // Melengkung ke kiri/kanan
+        rotation: Math.random() * 360, // Berputar perlahan
+        duration: Math.random() * 5 + 8, // Durasi sedikit lebih cepat agar dinamis
+        ease: "power1.out",
         opacity: 0,
         onComplete: () => element.remove()
     });
+
+    // Efek "Swaying" (Ayunan) samping agar lebih natural
+    gsap.to(element, {
+        x: "+=30", 
+        duration: 2, 
+        repeat: -1, 
+        yoyo: true, 
+        ease: "sine.inOut"
+    });
 }
 
-// Custom cursor (same as before)
-const cursor = document.querySelector('.custom-cursor');
-document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x: e.clientX - 15,
-        y: e.clientY - 15,
-        duration: 0.2
-    });
+// Panggil fungsi secara berkala
+setInterval(createFloatingElement, 400);
+
+window.addEventListener('mousemove', (e) => {
+    // Munculkan elemen kecil hanya sesekali agar tidak terlalu ramai
+    if (Math.random() > 0.9) { 
+        const spark = document.createElement('div');
+        spark.textContent = '✨';
+        spark.style.position = 'fixed';
+        spark.style.left = e.clientX + 'px';
+        spark.style.top = e.clientY + 'px';
+        spark.style.pointerEvents = 'none';
+        document.body.appendChild(spark);
+
+        gsap.to(spark, {
+            y: -50,
+            opacity: 0,
+            scale: 2,
+            duration: 1,
+            onComplete: () => spark.remove()
+        });
+    }
 });
 
-// Create initial floating elements
-setInterval(createFloatingElement, 2000);
+// Animasi foto saat baru masuk
+gsap.from(".heart-frame", {
+    duration: 2,
+    scale: 0,
+    opacity: 0,
+    rotation: -180,
+    ease: "elastic.out(1, 0.5)",
+    delay: 0.5
+});
+
+// Efek Detak Jantung (Heartbeat)
+gsap.to(".heart-frame", {
+    scale: 1.05,
+    duration: 0.8,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+});

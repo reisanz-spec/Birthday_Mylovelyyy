@@ -19,8 +19,48 @@
 
     <div class="container">
         <h1>Happy Birthday Sindy Eviola Hartaningrum 💖</h1>
+
+<div class="photo-container">
+  <svg width="300" height="300" viewBox="0 0 512 512" class="heart-svg">
+    <defs>
+      <clipPath id="heartPath">
+        <path d="M256 464 
+                 L60 268 
+                 C20 228 20 140 90 100 
+                 C150 70 220 90 256 140 
+                 C292 90 362 70 422 100 
+                 C492 140 492 228 452 268 
+                 Z"/>
+      </clipPath>
+    </defs>
+
+    <!-- Border -->
+    <path d="M256 464 
+             L60 268 
+             C20 228 20 140 90 100 
+             C150 70 220 90 256 140 
+             C292 90 362 70 422 100 
+             C492 140 492 228 452 268 
+             Z"
+          fill="none"
+          stroke="#ffb6c1"
+          stroke-width="15"
+          class="heart-glow-border"/>
+
+    <!-- Image -->
+    <image 
+      x="0" 
+      y="0" 
+      width="512" 
+      height="512"
+      clip-path="url(#heartPath)"
+      href="./d04.jpeg"
+      preserveAspectRatio="xMidYMid slice"/>
+  </svg>
+</div>
+
         
-        <div id="reasons-container"></div>
+    <div id="reasons-container"></div>
         
         <button class="shuffle-button">Click Here... 💕</button>
         <div class="reason-counter"></div>
@@ -32,6 +72,7 @@
             <div class="ending-text">You're Mylove ! 💖</div>
         </div>
     </div>
+    
 
     <script src="cause.js">
        

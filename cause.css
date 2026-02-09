@@ -192,3 +192,40 @@ h1 {
     margin-top: 1rem;
     opacity: 0.7;
 }
+
+/*Tambahan */
+
+.floating {
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0 0 5px white);
+    user-select: none;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.8));
+}
+
+.heart-svg {
+    width: 320px; /* Ukuran tampilan di web */
+    height: auto;
+    overflow: visible;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.heart-glow-border {
+    stroke: #ffffff; /* Warna garis dalam putih */
+    stroke-width: 10px;
+    filter: drop-shadow(0 0 10px #ff69b4); /* Glow pink luar */
+}
+
+
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
