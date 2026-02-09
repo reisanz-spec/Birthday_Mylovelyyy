@@ -135,15 +135,15 @@ shuffleButton.addEventListener('click', () => {
 //     });
 // }
 
-// Custom cursor (same as before)
-// const cursor = document.querySelector('.custom-cursor');
-// document.addEventListener('mousemove', (e) => {
-//     gsap.to(cursor, {
-//         x: e.clientX - 15,
-//         y: e.clientY - 15,
-//         duration: 0.2
-//     });
-// });
+Custom cursor (same as before)
+const cursor = document.querySelector('.custom-cursor');
+document.addEventListener('mousemove', (e) => {
+    gsap.to(cursor, {
+        x: e.clientX - 15,
+        y: e.clientY - 15,
+        duration: 0.2
+    });
+});
 
 // // Create initial floating elements
 // setInterval(createFloatingElement, 2000);
