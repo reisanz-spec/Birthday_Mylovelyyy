@@ -1,7 +1,7 @@
  // Reasons database
  const reasons = [
     { 
-        text: "Kamu orang yang baik dan bisa menghargai banget, aku merasa beruntung kita bisa punya hubungan sedekat dan senyaman ini. 💖", 
+        text: "Kamu orang yang baik dan bisa menghargai banget, aku merasa beruntung bisa punya hubungan sedekat dan senyaman ini. 💖", 
         emoji: "🌟",
         gif: "gif1.gif"
     },
