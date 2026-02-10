@@ -1,7 +1,7 @@
  // Reasons database
  const reasons = [
     { 
-        text: "Kamu orang yang baik dan bisa menghargai banget, aku merasa beruntung bisa punya hubungan sedekat dan senyaman ini. 💖", 
+        text: "Kamu orang yang baik dan bisa menghargai banget, aku merasa beruntung kita bisa punya hubungan sedekat dan senyaman ini. 💖", 
         emoji: "🌟",
         gif: "gif1.gif"
     },
@@ -135,15 +135,15 @@ shuffleButton.addEventListener('click', () => {
 //     });
 // }
 
-Custom cursor (same as before)
-const cursor = document.querySelector('.custom-cursor');
-document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x: e.clientX - 15,
-        y: e.clientY - 15,
-        duration: 0.2
-    });
-});
+// Custom cursor (same as before)
+// const cursor = document.querySelector('.custom-cursor');
+// document.addEventListener('mousemove', (e) => {
+//     gsap.to(cursor, {
+//         x: e.clientX - 15,
+//         y: e.clientY - 15,
+//         duration: 0.2
+//     });
+// });
 
 // // Create initial floating elements
 // setInterval(createFloatingElement, 2000);
@@ -227,14 +227,4 @@ gsap.to(".heart-frame", {
     repeat: -1,
     yoyo: true,
     ease: "sine.inOut"
-});
-
-Custom cursor (same as before)
-const cursor = document.querySelector('.custom-cursor');
-document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x: e.clientX - 15,
-        y: e.clientY - 15,
-        duration: 0.2
-    });
 });
