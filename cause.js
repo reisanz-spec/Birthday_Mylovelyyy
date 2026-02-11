@@ -69,76 +69,76 @@ function displayNewReason() {
         
         currentReasonIndex++;
 
-        // Check if we should transform the button
-//         if (currentReasonIndex === reasons.length) {
-//             gsap.to(shuffleButton, {
-//                 scale: 1.1,
-//                 duration: 0.5,
-//                 ease: "elastic.out",
-//                 onComplete: () => {
-//                     shuffleButton.textContent = "Enter Our Storylane 💫";
-//                     shuffleButton.classList.add('story-mode');
-//                     shuffleButton.addEventListener('click', () => {
-//                      localStorage.setItem("musicOn", "true");
-//                         gsap.to('body', {
-//                             opacity: 0,
-//                             duration: 1,
-//                             onComplete: () => {
-//                                 window.location.href = 'last.html'; // Replace with the actual URL of the next page
-//                             }
-//                         });
-//                     });
-//                 }
-//             });
-//         }
-
-//         // Create floating elements
-//         createFloatingElement();
-        
-//         setTimeout(() => {
-//             isTransitioning = false;
-//         }, 500);
-//     } else {
-//         // Handle navigation to new page or section
-//         window.location.href = "#storylane";
-//         // Or trigger your next page functionality
-//     }
-// }
-
-
-// // Initialize button click
-// shuffleButton.addEventListener('click', () => {
-//     gsap.to(shuffleButton, {
-//         scale: 0.9,
-//         duration: 0.1,
-//         yoyo: true,
-//         repeat: 1
-//     });
-//     displayNewReason();
-// });
-     if (currentReasonIndex === reasons.length) {
-    gsap.to(shuffleButton, {
-        scale: 1.1,
-        duration: 0.5,
-        ease: "elastic.out",
-        onComplete: () => {
-            shuffleButton.textContent = "Enter Our Storylane 💫";
-            shuffleButton.classList.add('story-mode');
-
-            shuffleButton.onclick = () => {
-                localStorage.setItem("musicOn", "true");
-
-                gsap.to('body', {
-                    opacity: 0,
-                    duration: 1,
-                    onComplete: () => {
-                        window.location.href = 'last.html';
-                    }
-                });
-            };
+        //Check if we should transform the button
+        if (currentReasonIndex === reasons.length) {
+            gsap.to(shuffleButton, {
+                scale: 1.1,
+                duration: 0.5,
+                ease: "elastic.out",
+                onComplete: () => {
+                    shuffleButton.textContent = "Enter Our Storylane 💫";
+                    shuffleButton.classList.add('story-mode');
+                    shuffleButton.addEventListener('click', () => {
+                     localStorage.setItem("musicOn", "true");
+                        gsap.to('body', {
+                            opacity: 0,
+                            duration: 1,
+                            onComplete: () => {
+                                window.location.href = 'last.html'; // Replace with the actual URL of the next page
+                            }
+                        });
+                    });
+                }
+            });
         }
-    });
+
+        // Create floating elements
+        createFloatingElement();
+        
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
+    } else {
+        // Handle navigation to new page or section
+        window.location.href = "#storylane";
+        // Or trigger your next page functionality
+    }
 }
+
+
+// Initialize button click
+shuffleButton.addEventListener('click', () => {
+    gsap.to(shuffleButton, {
+        scale: 0.9,
+        duration: 0.1,
+        yoyo: true,
+        repeat: 1
+    });
+    displayNewReason();
+});
+//      if (currentReasonIndex === reasons.length) {
+//     gsap.to(shuffleButton, {
+//         scale: 1.1,
+//         duration: 0.5,
+//         ease: "elastic.out",
+//         onComplete: () => {
+//             shuffleButton.textContent = "Enter Our Storylane 💫";
+//             shuffleButton.classList.add('story-mode');
+
+//             shuffleButton.onclick = () => {
+//                 localStorage.setItem("musicOn", "true");
+
+//                 gsap.to('body', {
+//                     opacity: 0,
+//                     duration: 1,
+//                     onComplete: () => {
+//                         window.location.href = 'last.html';
+//                     }
+//                 });
+//             };
+//         }
+//     });
+// }
 
 
 // Floating elements function (same as before)
