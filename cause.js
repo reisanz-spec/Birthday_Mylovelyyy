@@ -79,6 +79,7 @@ function displayNewReason() {
                     shuffleButton.textContent = "Enter Our Storylane 💫";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
+                     localStorage.setItem("musicOn", "true");
                         gsap.to('body', {
                             opacity: 0,
                             duration: 1,
