@@ -456,11 +456,11 @@ window.addEventListener('load', () => {
     
 <audio id="birthdaySong" src="happy-birthday.mp3" preload="auto" loop></audio>
 <script>
-// document.addEventListener("DOMContentLoaded", () => {
-//     const song = document.getElementById("birthdaySong");
-//     //const btn = document.querySelector(".goodbye-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const song = document.getElementById("birthdaySong");
+    //const btn = document.querySelector(".goodbye-btn");
 
-//     if (!song) return;
+    if (!song) return;
 
     // lanjutkan musik jika sudah ON
     if (localStorage.getItem("musicOn") === "true") {
@@ -468,14 +468,14 @@ window.addEventListener('load', () => {
         song.play().catch(() => {});
     }
 
-    // // klik untuk mulai
-    // if (btn) {
-    //     btn.addEventListener("click", () => {
-    //         localStorage.setItem("musicOn", "true");
-    //         song.volume = 0.6;
-    //         song.play().catch(() => {});
-    //     });
-    // }
+    // klik untuk mulai
+    if (btn) {
+        btn.addEventListener("click", () => {
+            localStorage.setItem("musicOn", "true");
+            song.volume = 0.6;
+            song.play().catch(() => {});
+        });
+    }
 });
 </script>
     
