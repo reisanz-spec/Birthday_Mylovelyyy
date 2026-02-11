@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<audio id="birthdaySong" src="happy-birthday.mp3" preload="auto" loop></audio>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -400,27 +400,9 @@ window.addEventListener('load', () => {
 });
 
 </script>
-<script>
-    const song = document.getElementById('birthdaySong');
-const button = document.querySelector('.cta-button');
 
-// Play saat klik pertama
-if (button && song) {
-    button.addEventListener('click', () => {
-        localStorage.setItem("musicOn", "true");
-        song.volume = 0.6;
-        song.play();
-    });
-}
 
-// Auto play di halaman berikutnya
-window.addEventListener('load', () => {
-    if (localStorage.getItem("musicOn") === "true" && song) {
-        song.volume = 0.6;
-        song.play().catch(() => {});
-    }
-});
-</script>
+
 
 
 
@@ -470,7 +452,33 @@ window.addEventListener('load', () => {
         <p>I LOVEEE UUU SAYANGKUUU SINDY EVIOLAAA 💖💖💖</p>
         <a href="#" class="goodbye-btn">Until We Meet Again 💝</a>
     </section>
+
+    
+<audio id="birthdaySong" src="happy-birthday.mp3" preload="auto" loop></audio>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const song = document.getElementById("birthdaySong");
+    const btn = document.querySelector(".goodbye-btn");
+
+    if (!song) return;
+
+    // lanjutkan musik jika sudah ON
+    if (localStorage.getItem("musicOn") === "true") {
+        song.volume = 0.6;
+        song.play().catch(() => {});
+    }
+
+    // klik untuk mulai
+    if (btn) {
+        btn.addEventListener("click", () => {
+            localStorage.setItem("musicOn", "true");
+            song.volume = 0.6;
+            song.play().catch(() => {});
+        });
+    }
+});
+</script>
+    
 </body>
 
-<audio id="birthdaySong" src="happy-birthday.mp3" preload="auto" loop></audio>
 </html>
