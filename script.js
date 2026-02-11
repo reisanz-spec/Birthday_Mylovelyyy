@@ -94,23 +94,27 @@ window.addEventListener('load', () => {
         });
     });
 
-//music
-const song = document.getElementById('birthdaySong');
-const button = document.querySelector('.cta-button');
+document.addEventListener("DOMContentLoaded", () => {
+    const song = document.getElementById("birthdaySong");
 
-// Play saat klik pertama
-if (button && song) {
-    button.addEventListener('click', () => {
-        localStorage.setItem("musicOn", "true");
-        song.volume = 0.6;
-        song.play();
-    });
-}
+    if (!song) return;
 
-// Auto play di halaman berikutnya
-window.addEventListener('load', () => {
-    if (localStorage.getItem("musicOn") === "true" && song) {
-        song.volume = 0.6;
+    // Jika sebelumnya musik sudah ON
+    if (localStorage.getItem("musicOn") === "true") {
+        song.volume = 0.7;
+        song.muted = false;
         song.play().catch(() => {});
     }
+
+    // Tombol play (jika ada)
+    const btn = document.querySelector(".cta-button");
+    if (btn) {
+        btn.addEventListener("click", () => {
+            localStorage.setItem("musicOn", "true");
+            song.volume = 0.7;
+            song.muted = false;
+            song.play().catch(() => {});
+        });
+    }
 });
+
