@@ -93,3 +93,24 @@ window.addEventListener('load', () => {
             });
         });
     });
+
+//music
+const song = document.getElementById('birthdaySong');
+const button = document.querySelector('.cta-button');
+
+// Play saat klik pertama
+if (button && song) {
+    button.addEventListener('click', () => {
+        localStorage.setItem("musicOn", "true");
+        song.volume = 0.6;
+        song.play();
+    });
+}
+
+// Auto play di halaman berikutnya
+window.addEventListener('load', () => {
+    if (localStorage.getItem("musicOn") === "true" && song) {
+        song.volume = 0.6;
+        song.play().catch(() => {});
+    }
+});
