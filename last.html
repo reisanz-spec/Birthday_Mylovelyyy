@@ -458,7 +458,7 @@ window.addEventListener('load', () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const song = document.getElementById("birthdaySong");
-    const btn = document.querySelector(".goodbye-btn");
+    //const btn = document.querySelector(".goodbye-btn");
 
     if (!song) return;
 
@@ -468,14 +468,14 @@ document.addEventListener("DOMContentLoaded", () => {
         song.play().catch(() => {});
     }
 
-    // klik untuk mulai
-    if (btn) {
-        btn.addEventListener("click", () => {
-            localStorage.setItem("musicOn", "true");
-            song.volume = 0.6;
-            song.play().catch(() => {});
-        });
-    }
+    // // klik untuk mulai
+    // if (btn) {
+    //     btn.addEventListener("click", () => {
+    //         localStorage.setItem("musicOn", "true");
+    //         song.volume = 0.6;
+    //         song.play().catch(() => {});
+    //     });
+    // }
 });
 </script>
     
