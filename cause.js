@@ -229,8 +229,8 @@ gsap.to(".heart-frame", {
     ease: "sine.inOut"
 });
 
-const song = document.getElementById('birthdaySong');
-const button = document.querySelector('.cta-button');
+// const song = document.getElementById('birthdaySong');
+const button = document.querySelector('.shuffle-button');
 
 document.addEventListener("DOMContentLoaded", () => {
     const song = document.getElementById("birthdaySong");
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Tombol play (jika ada)
-    const btn = document.querySelector(".cta-button");
+    const btn = document.querySelector('.shuffle-button');
     if (btn) {
         btn.addEventListener("click", () => {
             localStorage.setItem("musicOn", "true");
